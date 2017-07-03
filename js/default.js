@@ -3,9 +3,9 @@ function getFileName(){
   return window.location.href.split('/').pop();
 }
 
-var filename=getFileName();
+var filename = getFileName();
 var opt;
-if(filename==='other.html'){
+if(filename === 'other.html'){
   opt =document.query.Selector('option[value="other.html"]');
 }else{
   opt=document.query.Selector('option[value="index.html"]');
@@ -18,7 +18,7 @@ document.getElementById('form').select.onchange = function(){
 
 var last_date = getCookie('lastDate');
 if(last_date){
-  document.getElementById('cookie').textContent ='前回訪れた時間:' + last_date;
+  document.getElementById('cookie').textContent = '前回訪れた時間:' + last_date;
 }else{
   document.getElementById('cookie').textContent = '初めまして！';
 }
@@ -30,7 +30,7 @@ document.getElementById('remove_cookie').onsubmit = function(){
   setCookie('lastDate',"",0);
 }
 
-var thumbs =document.querySelectorAll('.thumb');
+var thumbs = document.querySelectorAll('.thumb');
 for(idx in thumbs){
   thumbs[ids].onclick = function(){
     cosument.getElementById("bigimg").src = 'img/' + this.dataset.image + 'jpg';
@@ -86,8 +86,8 @@ var refresh_up = function(){
   setTimeout(update,1000);
 }
 
-var refresh_cl=funtion(){
-  setTimeout(cloack,1000)
+var refresh_cl = funtion(){
+  setTimeout(cloack,1000);
 }
 update();
 cloack();
