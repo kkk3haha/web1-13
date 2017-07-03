@@ -64,7 +64,7 @@ var cloack=function(){
     counter_cloack[3] + '日' +
     counter_cloack[2] + '時' +
     counter_cloack[1] + '分' +
-    counter_cloack[0] + '秒';
+    counter_cloack[0] + '秒'　;
   refresh_cl();
 }
 
