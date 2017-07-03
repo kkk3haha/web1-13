@@ -84,30 +84,6 @@ var separate_time = function(time){
   return [sec,min,hours,days];
 }
 
-var separate_time_cloack=function(time){
-  var sec =time.getSeconds();
-  var min =time.getMinutes();
-  var hours=time.getHours();
-  var days=time.getDate();
-  var month=time.getMonth();
-  var year=time.getFullYear();
-  return [sec,min,hours,days,month,year];
-}
-
-var clock=function(){
-  var now =new Date();
-  var counter_clock=separate_time_cloack(now);
-  document.getElementById('clock').textContent =
-    '現在時刻'
-    counter_clock[5] + '年' +
-    counter_clock[4] + '月' +
-    counter_clock[3] + '日' +
-    counter_clock[2] + '時' +
-    counter_clock[1] + '分' +
-    counter_clock[0] + '秒'　;
-  refresh_cl();
-}
-
 var update = function(){
   var now = new Date();
   var target = new Date(2020,7,24,0,0,0,0);
@@ -126,8 +102,4 @@ var refresh_up = function(){
   setTimeout(update,1000);
 }
 
-var refresh_cl = function(){
-  setTimeout(clock,1000);
-}
 update();
-clock();
