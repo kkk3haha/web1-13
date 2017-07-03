@@ -30,12 +30,51 @@ document.getElementById('remove_cookie').onsubmit = function(){
   setCookie('lastDate',"",0);
 }
 
+//クッキーの保存（クッキー名、クッキーの値、クッキーの有効日数）
+function setCookie(c_name,value,expiredays){
+  //有効期限の日付
+  var extime =new Date().getTime();
+  var cltime = new Date(extime + (60*60*24*1000*expiredays));
+  var exdate = cltime.toUTCString();
+  //クッキーに保存する文字列を生成
+  var s="";
+  s+= c_name + "="+escape(value); //値はエンコードしておく
+  s += "; path=" +location.pathname;
+  if(expiredays){
+    s += "; expiredays=" + exdate+";";
+  }else{
+    s+=";";
+  }
+  document.cookie=s;
+}
+
+function getCookie(c_name){
+  var st="";
+  var ed="";
+  if(0<document.cookie.length){
+    st=document.cookie.indexOf(c_name +"=");
+    if(st!=-1){
+      st=st+c_name/length+1;
+      ed=document.cookie.indexOf(";",st);
+      if(ed==-1) ed=document.cookie.length;
+      //値をデコードして返す
+      return unescape(document.cookie.substring(st,ed));
+    }
+  }
+  return "";
+}
+
+
+
+
 var thumbs = document.querySelectorAll('.thumb');
 for(idx in thumbs){
   thumbs[ids].onclick = function(){
     cosument.getElementById("bigimg").src = 'img/' + this.dataset.image + 'jpg';
   }
 }
+
+
 
 var separate_time = function(time){
   var sec = Math.floor((time/1000)%60);
@@ -55,16 +94,16 @@ var separate_time_cloack=function(time){
   return [sec,min,hours,days,month,year];
 }
 
-var cloack=function(){
+var clock=function(){
   var now =new Date();
-  var counter_cloack=separate_time_cloack(now);
+  var counter_clock=separate_time_cloack(now);
   document.getElementById('cloack').textContent=
-    counter_cloack[5] + '年' +
-    counter_cloack[4] + '月' +
-    counter_cloack[3] + '日' +
-    counter_cloack[2] + '時' +
-    counter_cloack[1] + '分' +
-    counter_cloack[0] + '秒'　;
+    counter_clock[5] + '年' +
+    counter_clock[4] + '月' +
+    counter_clock[3] + '日' +
+    counter_clock[2] + '時' +
+    counter_clock[1] + '分' +
+    counter_clock[0] + '秒'　;
   refresh_cl();
 }
 
@@ -90,4 +129,4 @@ var refresh_cl = function(){
   setTimeout(cloack,1000);
 }
 update();
-cloack();
+clock();
