@@ -97,7 +97,7 @@ var separate_time_cloack=function(time){
 var clock=function(){
   var now =new Date();
   var counter_clock=separate_time_cloack(now);
-  document.getElementById('cloack').textContent=
+  document.getElementById('clock').textContent =
     counter_clock[5] + '年' +
     counter_clock[4] + '月' +
     counter_clock[3] + '日' +
