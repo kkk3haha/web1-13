@@ -69,7 +69,7 @@ function getCookie(c_name){
 
 var thumbs = document.querySelectorAll('.thumb');
 for(idx in thumbs){
-  thumbs[ids].onclick = function(){
+  thumbs[idx].onclick = function(){
     cosument.getElementById("bigimg").src = 'img/' + this.dataset.image + 'jpg';
   }
 }
