@@ -86,7 +86,7 @@ var refresh_up = function(){
   setTimeout(update,1000);
 }
 
-var refresh_cl = funtion(){
+var refresh_cl = function(){
   setTimeout(cloack,1000);
 }
 update();
