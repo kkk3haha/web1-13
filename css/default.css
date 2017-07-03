@@ -1,0 +1,26 @@
+@charset "utf-8"
+
+body{
+background-color:mediumaquamarine;
+}
+
+.center{
+margin:0 auto 0 auto;
+width: 50%;
+}
+
+ul{
+list-style: none;
+margin:0;
+padding:0;
+}
+li{
+float: left;
+margin-right:1%;
+}
+
+.image:after{
+content:"";
+display:block;
+clear:both;
+}
