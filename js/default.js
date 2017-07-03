@@ -126,7 +126,7 @@ var refresh_up = function(){
 }
 
 var refresh_cl = function(){
-  setTimeout(cloack,1000);
+  setTimeout(clock,1000);
 }
 update();
 clock();
